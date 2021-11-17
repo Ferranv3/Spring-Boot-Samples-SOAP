@@ -6,6 +6,8 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import io.spring.guides.gs_producing_web_service.DeleteCustomerRequest;
+import io.spring.guides.gs_producing_web_service.DeleteCustomerResponse;
 import io.spring.guides.gs_producing_web_service.GetCustomerRequest;
 import io.spring.guides.gs_producing_web_service.GetCustomerResponse;
 
@@ -14,17 +16,27 @@ import io.spring.guides.gs_producing_web_service.GetCustomerResponse;
 public class CustomerEndpoint {
     private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
     private CustomerRepository customerRepository;
+
     @Autowired
     public CustomerEndpoint(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
-        System.out.println("CustomerEndpoint.CustomerEndpoint()");
     }
+
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCustomerRequest")
     @ResponsePayload
     public GetCustomerResponse getCustomer(@RequestPayload GetCustomerRequest request) {
         System.out.println("CustomerEndpoint.getCustomer()");
         GetCustomerResponse response = new GetCustomerResponse();
-        response.setCustomer(customerRepository.findCustomer(request.getName()));
+        response.setCustomer(customerRepository.findCustomerByID(request.getId()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "deleteCustomerRequest")
+    @ResponsePayload
+    public DeleteCustomerResponse deleteCustomer(@RequestPayload DeleteCustomerRequest request) {
+        System.out.println("CustomerEndpoint.deleteCustomer()");
+        DeleteCustomerResponse response = new DeleteCustomerResponse();
+        response.setCustomer(customerRepository.deleteCustomerByID(request.getId()));
         return response;
     }
 }
