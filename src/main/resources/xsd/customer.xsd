@@ -9,7 +9,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getCustomerResponse">
+    <xs:element name="CustomerResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="customer" type="tns:customer"/>
@@ -25,10 +25,25 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="deleteCustomerResponse">
+    <xs:element name="createCustomerRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="customer" type="tns:customer"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="lastName" type="xs:string"/>
+                <xs:element name="email" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="modifyCustomerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="lastName" type="xs:string"/>
+                <xs:element name="email" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

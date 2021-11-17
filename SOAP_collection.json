@@ -121,6 +121,84 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create customer",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                    xmlns:gs=\"http://spring.io/guides/gs-producing-web-service\">\r\n<soapenv:Header/>\r\n   <soapenv:Body>\r\n      <gs:getCustomerRequest>\r\n         <gs:id>1</gs:id>\r\n      </gs:getCustomerRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ws",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ws"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify customer",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                    xmlns:gs=\"http://spring.io/guides/gs-producing-web-service\">\r\n<soapenv:Header/>\r\n   <soapenv:Body>\r\n      <gs:modifyCustomerRequest>\r\n         <gs:id>1</gs:id>\r\n         <gs:name>Pepito</gs:name>\r\n         <gs:firstName>Lopez</gs:firstName>\r\n         <gs:lastName>Aranda</gs:lastName>\r\n         <gs:email>email@email.com</gs:email>\r\n      </gs:modifyCustomerRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ws",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ws"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
