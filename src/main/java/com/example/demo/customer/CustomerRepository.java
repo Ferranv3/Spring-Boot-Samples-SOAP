@@ -41,14 +41,7 @@ public class CustomerRepository {
         customer2.setEmail("email@email.com");
         customers.put(customer2.getId(), customer2);
     }
-
-    /*public Customer findCustomerByName(String name) {
-        Assert.notNull(name, "The customer's name must not be null");
-        return customers.get(name);
-    }*/
-
     public Customer createCustomer(String name, String firstName, String lastName, String email) {
-        //Assert.notNull(id, "The customer's id must not be null");
         this.id = this.id + 1;
         Customer customer = new Customer();
         System.out.println(this.id);

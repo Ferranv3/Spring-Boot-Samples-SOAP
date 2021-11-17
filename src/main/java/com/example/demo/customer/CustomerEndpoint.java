@@ -7,7 +7,6 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import io.spring.guides.gs_producing_web_service.CreateCustomerRequest;
-import io.spring.guides.gs_producing_web_service.Customer;
 import io.spring.guides.gs_producing_web_service.CustomerResponse;
 import io.spring.guides.gs_producing_web_service.DeleteCustomerRequest;
 import io.spring.guides.gs_producing_web_service.GetCustomerRequest;
